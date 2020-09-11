@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("noaway1")
+	fmt.Println("noaway1a")
 }
