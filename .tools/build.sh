@@ -25,4 +25,9 @@ EXEC="$BUILD_DIR/$PROJECT_NAME"
 go build -v -o "$EXEC" $PROJECT_ROOT
 
 VERSION=$($EXEC -v|awk '{print $3}')
-cd "$BUILD_DIR" && tar caf "$PROJECT_NAME-mac64-$VERSION.tar.xz" "$PROJECT_NAME"
+export TARNAME="$PROJECT_NAME-mac64-$VERSION.tar.xz"
+export TARABS="$BUILD_DIR/$TARNAME"
+
+echo "TARNAME=$TARNAME"
+echo "TARABS=$TARABS"
+cd "$BUILD_DIR" && tar caf "$TARNAME" "$PROJECT_NAME"
