@@ -18,9 +18,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           make build-release
-          echo ::set-env name=tarname::$TARNAME
-          echo ::set-env name=version::$VERSION
-          echo ::set-env name=tarabs::$TARABS
+          echo ::set-env name=tarname::111
+          echo ::set-env name=version::222
+          echo ::set-env name=tarabs::333
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.0.0
