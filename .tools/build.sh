@@ -31,3 +31,7 @@ export TARABS=".build/$TARNAME"
 echo "TARNAME=$TARNAME"
 echo "TARABS=$TARABS"
 cd "$BUILD_DIR" && tar caf "$TARNAME" "$PROJECT_NAME"
+
+echo "::set-env name=tarname::$TARNAME"
+echo "::set-env name=version::$VERSION"
+echo "::set-env name=tarabs::$TARABS"
