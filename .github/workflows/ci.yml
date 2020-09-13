@@ -18,15 +18,17 @@ jobs:
       - name: Run a multi-line script
         run: |
           make build-release
-          echo ${{ github.ref }}
+          echo "::set-env name=tarname::$TARNAME"
+          echo "::set-env name=version::$VERSION"
+          echo "::set-env name=tarabs::$TARABS"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.VERSION }}
-          release_name: v${{ env.VERSION }}
+          tag_name: v${{ env.version }}
+          release_name: v${{ env.version }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -36,6 +38,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.TARABS }}
-          asset_name: $TARNAME
+          asset_path: ${{ env.tarabs }}
+          asset_name: ${{ env.tarname }}
           asset_content_type: application/octet-stream
