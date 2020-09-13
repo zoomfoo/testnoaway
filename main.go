@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"github.com/spf13/cobra"
 )
 
 func main() {
-	fmt.Println("helloworld")
+	cmdRoot := &cobra.Command{Use: "testnoaway", Version: "0.1.2"}
+	cmdRoot.Execute()
 }
