@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	cmdRoot := &cobra.Command{Use: "testnoaway", Version: "0.3.5"}
+	cmdRoot := &cobra.Command{Use: "testnoaway", Version: "0.3.6"}
 	cmdRoot.Execute()
 }
